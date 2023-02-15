@@ -1,37 +1,58 @@
-kor=input("Kerlek ird be a korod\n")
-kor=int(kor)
+#kor = input("Add meg a korod\n")
+#kor = int(kor)
 
-vezet=input("Kerlek ird be hogy vezet-e\n")
+# Lehet rögtön a beolvasott szöveget számmá konvertálni
+kor = int(input("Add meg a korod\n"))
 
 
-# if kor<18:
-#     print("Kiskoru")
+# Egyszerű elágazás
+# Logikai típust vár
+# A <,>,<=,>= ... Operátorok mind értelmesek
+# Teljes listáért keress rá
+# if kor < 18:
+#     print("kiskorú")
 # else:
-#     print("Nagykoru")
-    
-if kor<6:
+#     print("nagykorú")
+
+
+# többszörös elágazás is lehet az első igazra "matchel"
+# A többit figyelmen kívül hagyja
+if kor < 6:
     print("Kisgyerek")
-elif kor<18:
-    print("Kiskoru")
-elif kor<65:
-    print("Nagykoru")
-else: 
-    print("nyugdijas")    
+elif kor < 18:
+    print("Kiskorú")
+elif kor < 65:
+    print("nagykorú")
+else:
+    print("nyugdíjas")
 
-vezet=(vezet)
+# Logikai típus értéke lehet True és False
+vezet = True
+# vezet=False
 
-
-if kor<18:
+# egymásba ágyazhatók az elágazások
+if kor < 18:
     print("nem ihat")
 else:
-    if vezet==True:
+    if vezet:
         print("nem ihat")
     else:
-            print("ihat")
-    
-    
-if kor<18 or vezet==True:
+        print("Ihat")
+# Ennél a példánál nem szép, mert többször
+# Ugyanaz a kimenet print("nem ihat")
+
+# Bonyolultabb logikai kifejezések írhatók az
+# "and" és az "or" szavak használatával ("és", "vagy")
+if kor < 18 or vezet:
     print("nem ihat")
-else: print("ihat")
-    
+else:
+    print("Ihat")
+
+# Az eggyenlőség vizsgálat a ==
+# A nem eggyenlő a !=
+if kor < 18 or vezet == True:
+    print("nem ihat")
+else:
+    print("Ihat")
+
     

@@ -1,9 +1,18 @@
 N = int(input())
 ice = []
+ices=0
 for i in range(N):
-    ice.append(int(input()))
-print(sum(ice))
+    if i>0:
+      ices +=1
+      
+print(i)  
+    
+    # ice.append(int(input()))
 
+
+
+
+# 
 
 # for j in range(ice):
 #     fagyos = 0
