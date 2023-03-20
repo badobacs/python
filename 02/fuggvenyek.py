@@ -21,4 +21,14 @@ def oszegzes3(a,b):
     sum(range(a+1,b)) 
 lista=[1,5,3]
 print(sum(lista))
-    
+#átlag
+print(sum(lista)/len(lista))
+print(min(lista))
+print(max(lista))   
+
+
+szamlalo=0
+def novel():
+    szamlalo+=1
+novel()
+print(szamlalo)
