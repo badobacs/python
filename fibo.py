@@ -7,7 +7,7 @@ count = 0
 if x < 0:
     x *= -1
 
-# ha 1 jegyüt kér visszaadjuk az elsö elemet7
+# ha 1 jegyüt kér visszaadjuk az elsö elemet
 elif x  == 1:
     print("Fibonacci sequence upto",x,":")
     print(n1)
