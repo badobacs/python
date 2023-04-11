@@ -6,7 +6,7 @@ def recur_fibo(n):
     else:
         return(recur_fibo(n-1) + recur_fibo(n-2))
 
-nt=10
+nt = int(input("What's the number?"))
 
 if nt <=0:
     nt *= -1
