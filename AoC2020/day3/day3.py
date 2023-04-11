@@ -5,7 +5,7 @@ print(map)
 treeCount = 0
 row, col = 0, 0
 
-while row < len(map):
+while row+1 < len(map):
     row += 1
     col += 3
     space = map[row][col % len(map[row])]
