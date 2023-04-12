@@ -1,4 +1,5 @@
 fields=['byr', 'iyr','eyr','hgt','hcl','ecl','pid']
+validPass = []
 
 def valid_passport(pp):
     for field in fields:
@@ -9,17 +10,77 @@ def valid_passport(pp):
 with open('input4.txt') as file:
    data = file.readlines() 
    data=[line.strip() for line in data]
-   print (data)
+#    print (data)
 validCount = 0
 
-currentpasport = ''
+currentPassport = ''
 for line in data:
     if line != '':
-        currentpasport += ' ' + line
+        currentPassport += ' ' + line
     else:
-        if valid_passport(currentpasport):
+        if valid_passport(currentPassport):
+            validPass.append(currentPassport)
             validCount += 1
-        currentpasport = ''
-if valid_passport(currentpasport):
+        currentPassport = ''
+if valid_passport(currentPassport):
     validCount += 1
 print(validCount)
+
+# part2
+
+def is_valid_byr(byr):
+    byr = int(byr)
+    if byr <1920 or byr >2002:
+        return False
+    return True
+
+def is_valid_iyr(iyr):
+    iyr = int(iyr)
+    if iyr < 2010 or iyr > 2020:
+        return False
+    return True
+
+def is_valid_eyr(eyr):
+    eyr = int(eyr)
+    if eyr < 2020 or eyr > 2030:
+        return False
+    return True
+
+def is_valid_hgt(hgt):
+    units = hgt[-2:]
+    if units not in ['in','cm']:
+        return False
+    hgt = int(hgt[:-2])
+    if units == 'in':
+        if hgt <69 or hgt > 76:
+            return False
+    elif units == 'cm':
+        if hgt < 150 or hgt > 193:
+            return False
+    return True
+            
+def is_valid_hcl(hcl):
+    if hcl[0] != '#':
+        return False
+    if len(hcl[1:]) != 6: return False
+        
+
+def is_valid_ecl(ecl):
+    if ecl != 'amb' or 'blu' or 'brn' or 'gry' or 'grn' or 'hzl' or 'oth':
+        return False
+    return True
+
+def is_valid_pid(pid):
+    if len(pid) != 9:
+        return False
+
+
+
+
+def real_val_data(passP):
+    passP = passP.split()
+    data = {}
+    for item in passP:
+        key = item[:3]
+        value = item[4:]
+        data[key] = value
