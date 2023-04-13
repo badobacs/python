@@ -23,6 +23,7 @@ for line in data:
             validCount += 1
         currentPassport = ''
 if valid_passport(currentPassport):
+    validPass.append(currentPassport)
     validCount += 1
 print(validCount)
 
@@ -66,16 +67,16 @@ def is_valid_hcl(hcl):
         
 
 def is_valid_ecl(ecl):
-    if ecl != 'amb' or 'blu' or 'brn' or 'gry' or 'grn' or 'hzl' or 'oth':
+    colors = ['amb','blu','brn','gry','grn','hzl','oth']
+    # if ecl != 'amb' or 'blu' or 'brn' or 'gry' or 'grn' or 'hzl' or 'oth':
+    if ecl not in colors:
         return False
     return True
 
 def is_valid_pid(pid):
     if len(pid) != 9:
         return False
-
-
-
+    return True
 
 def real_val_data(passP):
     passP = passP.split()
@@ -84,3 +85,24 @@ def real_val_data(passP):
         key = item[:3]
         value = item[4:]
         data[key] = value
+    
+    if not is_valid_byr(data['byr']):
+        return False
+    if not is_valid_iyr(data['iyr']):
+        return False
+    if not is_valid_eyr(data['eyr']):
+        return False
+    if not is_valid_hgt(data['hgt']):
+        return False
+    if not is_valid_hcl(data['hcl']):
+        return False
+    if not is_valid_ecl(data['ecl']):
+        return False
+    if not is_valid_pid(data['pid']):
+        return False
+    return True
+validCount = 0
+for pp in valid_passport:
+    if real_val_data(pp):
+        validCount +=1
+print(validCount)
