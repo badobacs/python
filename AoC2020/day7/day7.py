@@ -31,20 +31,22 @@ print(len(colors))
 def get_bag_count(color):
     rule= ''
     for line in data:
-        if line[:line.index(' bag')] == color:
+        if line[:line.index(' bags')] == color:
             rule = line
     if 'no' in rule:
         return 1
     
-    rule =rule[rule.index('contain')+8:].split()
+    rule = rule[rule.index('contain')+7:].split()
     
-    total = 0
+    total=0
     i=0
-    while i < len(rule):
+    while i<len(rule):
         count = int(rule[i])
         color = rule[i+1] + ' ' + rule[i+2]
         total += count * get_bag_count(color)
-        i+=4
+        i += 4
+        # print(rule)
     return total + 1
 count = get_bag_count('shiny gold')
-print(count)
+print (count)
+  
