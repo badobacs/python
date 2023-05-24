@@ -9,7 +9,11 @@
 # #        eladas += 1
 # print(T)
 
+
+sale_number = int()
+S=[]
 with open('be1.txt') as file:
-    lists=file.readlines()
-    
-print(lists)
+    sales=file.read()
+    for i in sales:
+        
+        print(str(sales[i]))
